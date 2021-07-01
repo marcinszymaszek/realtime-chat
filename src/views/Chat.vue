@@ -20,7 +20,7 @@
                 : 'bg-white float-left clear-both'
             "
           >
-            <div class="inline-flex pb-0 mb-0 message-details">
+            <div class="flex justify-between pb-0 mb-0 message-details">
               <span
                 class="text-black font-semibold text-left align-bottom pl-3 time-date"
               >
@@ -59,8 +59,6 @@
 import { ref, onMounted } from "vue";
 import moment from "moment";
 import firebase from "firebase";
-// import { onMounted, reactive } from "vue";
-// import firebase, { chatsRef } from "../utilities/firebase";
 
 export default {
   setup() {
@@ -79,9 +77,6 @@ export default {
       db.collection("chat").add({
         message: message.value,
         author: authUser.value.displayName,
-        // createdAt: moment()
-        //   .locale("pl")
-        //   .format("LT"),
         createdAt: new Date(),
       });
       message.value = null;
